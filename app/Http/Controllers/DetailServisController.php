@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DetailServis;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreDetailServisRequest;
 use App\Http\Requests\UpdateDetailServisRequest;
 
@@ -47,7 +48,7 @@ class DetailServisController extends Controller
      */
     public function store(StoreDetailServisRequest $request)
     {
-        //
+       
     }
 
     /**

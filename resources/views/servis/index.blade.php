@@ -74,23 +74,24 @@
         <!-- <div class="image">
             <img src="assets/images/konsultasi-img.jpg" alt="">
         </div> -->
-
-        <form action="{{ url('/konsultasi') }}" method="POST">
+ 
+        <form action="{{ url('/konsultasi') }}" method="POST" id="add_form" onsubmit="return submitForm(this);">
             @csrf
             <h1 class="heading">Konsultasi Gratis</h1>
             <div class="inputBox">
-                <input type="text" placeholder="Nama" name="nama">
-                <input type="email" placeholder="Email" name="email">
+                <input id="nama" type="text" placeholder="Nama" name="nama" required>
+                <input type="email" placeholder="Email" name="email" required>
             </div>
 
             <div class="inputBox">
-                <input type="text" placeholder="No. Whatsapp" name="nohp">
-                <input type="text" placeholder="Domisili" name="domisili">
+                <input id="nohp" type="number" placeholder="No. Whatsapp" name="nohp" required>
+                <input id="domisili" type="text" placeholder="Domisili" name="domisili" required>
             </div>
 
-            <textarea placeholder="Isi keluhan disini.." name="keluhan" id="" cols="30" rows="10" ></textarea>
+            <textarea id="keluhan" placeholder="Isi keluhan disini.." name="keluhan"  cols="30" rows="10" required ></textarea>
 
-            <input type="submit" value="Kirim" class="btn">
+            {{-- <a href="https://wa.link/f1hyp9" class="btn"></a> --}}
+            <input type="submit" value="Kirim" class="btn" id="submit"> 
 
         </form>
 
@@ -289,4 +290,100 @@
 
 </section>
     
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+   
+//    function submitForm(form){
+//     swal({
+//         title: "Anda yakin?",
+//         text: "Data akan dikirim!",
+//         icon: "warning",
+//         buttons: true,
+//         dangerMode: true,
+//     })
+//     .then((isOkay) => {
+//         if (isOkay) {
+//             // form.submit();
+//             swal("Data berhasil dikirim!", {
+//                 icon: "success",
+//             }).then(function() {
+//             form.submit();
+//          })
+//         }
+//     });
+//     return false;
+//    }
+   
+//    $("#submit").click(function(){
+//     var nama = $("#nama").val();
+//     var email = $("#email").val();
+//     var nohp = $("#nohp").val();
+//     var domisili = $("#domisili").val();
+//     var keluhan = $("#keluhan").val();
+
+//     if (nama == '' || email == '' || nohp == '' || domisili == '' || keluhan == '') {
+//        swal({
+//         title: "Gagal!",
+//         text: "Data tidak boleh kosong!",
+//         icon: "warning",
+//         button: "OK",
+//        });
+//     }else {
+//          swal({
+//           title: "Berhasil!",
+//           text: "Data berhasil disimpan!",
+//           icon: "success",
+//           button: "OK",
+//          });
+//     }
+//    });
+
+$("#addform").submit(function(e){
+    e.preventDefault();
+    const fd = new FormData(this);
+    $.ajax({
+        url: "{{ url('addform') }}",
+        type: "POST",
+        data: fd,
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        success: function(response) {
+        if (response.errors) {
+          let errors = '';
+          $.each(response.errors, function(key, value) {
+            errors += value + '</br>';
+          });
+          Swal.fire(
+            'Warning',
+            errors,
+            'warning'
+          )
+        } else{
+          $('.konsultasi-table').DataTable().ajax.reload();
+          Swal.fire(
+            'Berhasil!',
+            response.success,
+            'success'
+            )
+          $("#addform").modal('hide');
+        }
+      },
+      error: function (xhr, status, error) {
+        console.log(xhr.responseText)
+        Swal.fire(
+          'Error',
+          'Ada masalah!',
+          'error'
+        )
+      }
+    });
+  });
+   
+
+    
+
+  
+</script>
+
 @endsection

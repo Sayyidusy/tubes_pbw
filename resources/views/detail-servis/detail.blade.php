@@ -86,9 +86,63 @@
           {{-- <button type = "button" class = "btn">
             Konsultasi
           </button> --}}
-          <a href="https://wa.link/f1hyp9">
+          {{-- <a href="https://wa.link/f1hyp9">
             <button type = "button" class = "btn">Service Sekarang</button>
-          </a>
+          </a> --}}
+
+           
+          </div>
+          <!-- modal form button  -->
+          <div>
+            <button id="show-login" class="btn">Servis Sekarang</button>
+          </div>
+          <form action="{{ url('/testimoni') }}" method="POST">
+            @csrf
+          
+          <div class="popup">
+            <div class="close-btn">&times;</div>
+            <div class="form">
+              <h2>Jasa Servis</h2>
+              <div class="form-element">
+                <label for="nama">Nama</label>
+                <input type="text" id="nama" placeholder="Masukan nama" name="nama" required>
+              </div>
+
+              <div class="form-element">
+                <label for="detail-servis">Servis</label>
+                {{-- <h1>{{ $detail->namaServis }}</h1> --}}
+                <input type="text" id="namaServis" name="namaServis"  value="{{ $detail->namaServis }}" readonly required>
+              </div>
+              <div class="form-element">
+                <label for="harga">harga</label>
+                {{-- <h1>{{ $detail->namaServis }}</h1> --}}
+                <input type="text" id="harga" name="hargaServis"  value="{{ $detail->hargaServis }}" readonly required>
+              </div>
+
+              <div class="form-element">
+                <label for="tanggal">Tanggal</label>
+                <input type="date" id="tanggal" placeholder="Masukan tanggal" name="tanggal" required>
+              </div>
+              <div class="form-element">
+                <label for="alamat">Alamat</label>
+                <input type="text" id="alamat" placeholder="Masukan alamat" name="alamat" required>
+              </div>
+
+              
+
+              <div class="form-element">         
+               {{-- submit  --}}
+              
+                {{-- <a href="https://wa.link/f1hyp9" class="btn" ></a> --}}
+                {{-- <button type = "button" class = "btn" >Service Sekarang</button> --}}
+                <input type="submit" value="Kirim" class="btn"> 
+             
+              </div> 
+            </div>
+          </form>
+
+
+
         </div>
 
 
@@ -119,6 +173,14 @@ function slideImage(){
 }
 
 window.addEventListener('resize', slideImage);
+
+// modal
+document.querySelector("#show-login").addEventListener("click",function(){
+    document.querySelector(".popup").classList.add("active");
+  });
+  document.querySelector(".popup .close-btn").addEventListener("click",function(){
+    document.querySelector(".popup").classList.remove("active");
+  });
 
 </script>
 @endsection

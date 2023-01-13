@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServisController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\KonsultasiController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\UserProfileController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\DetailServisController;
 use App\Http\Controllers\UserPasswordController;
 use App\Http\Controllers\UserTransaksiController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\AdminTestimoniController;
 use App\Http\Controllers\Admin\AdminKonsultasiController;
 use App\Http\Controllers\Admin\AdminDetailServisController;
 
@@ -46,7 +48,12 @@ Route::middleware('auth')->group(function () {
 
     //detail komponen
     Route::get('/detail-servis/{id}', [DetailServisController::class, 'detail']);
+    //  testimoni
+    Route::resource('/testimoni', TestimoniController::class);
 
+    //link wa
+    
+    
 });
 
 
@@ -82,7 +89,10 @@ Route::prefix('/admin')->group(function() {
         //admin konsultasi
         Route::get('konsultasi', [AdminKonsultasiController::class, 'index']);
         Route::get('konsultasi/getAllKonsultasi', [AdminKonsultasiController::class, 'getAllKonsultasi']);
-       
+
+        //admin Testimoni 
+        Route::get('testimoni', [AdminTestimoniController::class, 'index']);
+        Route::get('testimoni/getAllTestimoni', [AdminTestimoniController::class, 'getAllTestimoni']);
         
       
     });

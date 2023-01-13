@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Testimoni;
+use App\Models\Konsultasi;
+use App\Models\DetailServis;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\DetailServis;
-use App\Models\Konsultasi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -51,12 +52,15 @@ class AdminController extends Controller
         $userCount = User::all()->count();
         $detaiServis = DetailServis::all()->count();
         $konsultasi = Konsultasi::all()->count();
+        $testimoni = Testimoni::all()->count();
         // $cpuCount = Cpu::all()->count();
        
         $countData = [
             'user' => $userCount,
             'detail-servis'=> $detaiServis,
-            'konsultasi'=> $konsultasi
+            'konsultasi'=> $konsultasi,
+            'testimoni'=> $testimoni,
+
 
         ];
         

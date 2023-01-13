@@ -40,6 +40,15 @@
           </div>
         </div>
 
+        <div class="col-md-4 mb-2 stretch-card">
+          <div class="card shadow p-1 mb-5 card-light-warning">
+            <div class="card-body">
+              <p class="mb-4">Jumlah Data Pemesanan Servis</p>
+              <p class="fs-30 mb-2">{{ $countData['testimoni'] }}</p>
+            </div>
+          </div>
+        </div>
+
           <div class="col-12 col-xl-4">
            <div class="justify-content-end d-flex">
             <div class="dropdown flex-md-grow-1 flex-xl-grow-0">      

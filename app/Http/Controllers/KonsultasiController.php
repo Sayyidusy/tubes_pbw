@@ -41,7 +41,7 @@ class KonsultasiController extends Controller
             'email'     => ['required', 'string', 'max:255'],
             'nohp'      => ['required', 'string', 'max:255'],
             'domisili'  => ['required', 'string', 'max:255'],
-            'keluhan'   => ['required', 'string', 'max:255'],
+            'keluhan'   => ['required', 'string'],
             
         ],
         [
@@ -53,18 +53,21 @@ class KonsultasiController extends Controller
         ]);
 
         
-
-           $konsultasi = new Konsultasi();
-           $konsultasi->nama = $request->nama;
-           $konsultasi->email = $request->email;
-           $konsultasi->nohp = $request->nohp;
-           $konsultasi->domisili = $request->domisili;
-           $konsultasi->keluhan = $request->keluhan;
-           $konsultasi->save();
-
-           return redirect()->back()->with('success', 'Data berhasil ditambahkan');
+        if($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()]);
+        } else {
+            $konsultasi = new Konsultasi();
+            $konsultasi->nama = $request->nama;
+            $konsultasi->email = $request->email;
+            $konsultasi->nohp = $request->nohp;
+            $konsultasi->domisili = $request->domisili;
+            $konsultasi->keluhan = $request->keluhan;
+            $konsultasi->save();
+            }
+            
+            return response()->json(['success' => "Berhasil menyimpan data"]);
+        }
         
-    }
 
     /**
      * Display the specified resource.

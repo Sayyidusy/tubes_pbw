@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
-use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Yajra\DataTables\Facades\DataTables;
 
-class UserTransaksiController extends Controller
+class AdminTestimoniController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +16,24 @@ class UserTransaksiController extends Controller
      */
     public function index()
     {
-        return view('user-profile.user-transaksi');
+        return view('admin.testimoni.index');
     }
-    public function tabelTransaksi($id)
-    {
-        
-        $tabelTransaksi = DB::table('testimoni')->select('nama','namaServis','hargaServis', 'tanggal', 'alamat')->where('id', $id)->get()[0];
-        // $detailComponent->price = parent::rupiah($detailComponent->price);
+    public function getAllTestimoni(){
+        $testimoni = DB::table('testimoni')
+            ->select(
+                'id as id',
+                'nama as nama',
+                'namaServis as namaServis',
+                'tanggal as tanggal',
+                'alamat as alamat',
+                'hargaServis as hargaServis',
+                // 'rating as rating',
+                // 'komentar as komentar',
+                )
+            ->orderBy('id', 'asc')
+            ->get();
 
-        // dd($columnNames);
-        return view('user-profile.user-transaksi', compact('testimoni'));
+            return DataTables::of($testimoni)->make(true);
     }
 
     /**
@@ -57,9 +65,7 @@ class UserTransaksiController extends Controller
      */
     public function show($id)
     {
-        $transaksi = Transaksi::find($id);
-        $user = User::find($id);
-        return view('user-profile.user-transaksi', compact('user','transaksi'));
+        //
     }
 
     /**
