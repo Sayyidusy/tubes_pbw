@@ -970,7 +970,21 @@ ul li ul:hover {
 
 @media(max-width:768px){
 
-  #menu-bar{
+  .iklan .box-iklan .text-iklan h2{
+    margin-top: 10px;
+    position: absolute;
+    left: 12%;
+    font-size: 1.2rem;
+    color:var(--white);
+    padding:1rem;
+  }
+  .iklan .box-iklan .text-iklan h3{
+ 
+    font-size: 1.2rem;
+   
+  }
+
+  /* #menu-bar{
     display: initial;
   }
 
@@ -984,16 +998,11 @@ ul li ul:hover {
 
   header .navbar.active{
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
+  } */
 
   header .navbar a{
-    margin: 1.5rem;
-    padding:1.5rem;
-    display: block;
-    border:.2rem solid rgba(0,0,0,.1);
-    border-left:.5rem solid var(--orange);
-    background:#fff;
-  }
+    font-size: 1.5rem;
+  } 
 
 }
 
@@ -1005,6 +1014,7 @@ ul li ul:hover {
 
   .konsultasi .row form .inputBox input{
     width:100%;
+    
   }
 
 }

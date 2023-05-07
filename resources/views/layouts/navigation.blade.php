@@ -1,12 +1,14 @@
 <header>
     <a href="#" class="logo"><i class="fa fa-desktop" aria-hidden="true"></i></i>EZ PC</a>
     <!-- <a href="#" class="logo"><i class="fas fa-utensils"></i>EZ PC</a> -->
+
+    {{-- <div id="menu-bar" class="fas fa-bars"></div> --}}
     <nav class="navbar">
         <a href="{{ url('/') }}" class="{{ (request()->is('/')) ? 'active' : '' }}">Beranda</a>
         {{-- <a href="{{ url('rakit') }}" class="{{ (request()->is('rakit')) ? 'active' : '' }}">Jasa Rakit PC</a> --}}
         <a href="{{ url('servis') }}" class="{{ (request()->is('servis')) ? 'active' : '' }}">Jasa Servis PC</a>
-        <a href="{{ url('tentangKami') }}" class="{{ (request()->is('tentangKami')) ? 'active' : '' }}">Tentang Kami</a>
-        <a href="{{ url('hubungiKami') }}" class="{{ (request()->is('hubungiKami')) ? 'active' : '' }}">Hubungi Kami</a>
+        <a href="{{ url('about') }}" class="{{ (request()->is('about')) ? 'active' : '' }}">Tentang Kami</a>
+        {{-- <a href="{{ url('hubungiKami') }}" class="{{ (request()->is('hubungiKami')) ? 'active' : '' }}">Hubungi Kami</a> --}}
     </nav>
 
     <nav class="dropdown-profile">
@@ -17,8 +19,7 @@
                   <li>
                     {{-- <span class="material-icons-outlined"> notifications </span> --}}
                   </li>    
-          
-                
+
                   <li>
           
                     <div class="icons">
@@ -53,9 +54,10 @@
                 </ul>
                 @else
                     <ul>
-                      <li>
-                        <div  ><a href="{{ route('login') }}" style="color: #ffff">Log In</a></div>
-                        <div ><a href="{{ route('register') }}" style="color: #ffff" >Register</a></div>  
+                      <li style="display: flex">
+                        <div><a href="{{ route('login') }}" style="color: #ffff; font-size: 15px">Log In</a></div> 
+                        <div style="margin-left: 10px; margin-right: 10px; color: #ffff; font-size: 15px">|</div>
+                        <div><a href="{{ route('register') }}" style="color: #ffff; font-size: 15px" >Register</a></div>  
                       </li>
                     </ul>            
                 @endauth

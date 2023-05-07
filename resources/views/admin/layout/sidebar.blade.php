@@ -37,7 +37,7 @@
     
    
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#pcbulds" aria-expanded="false" aria-controls="pcbulds">
         <i class="ti-package menu-icon"></i>
         <span class="menu-title">Full PC Builds</span>
@@ -50,7 +50,7 @@
           <li class="nav-item"><a class="nav-link" href="{{ url('admin/best-pcbuild') }}">Best</a></li>
         </ul>
       </div>
-    </li>
+    </li> --}}
 
     <li class="nav-item">
       <a class="nav-link" href="{{ url('admin/settings') }}">

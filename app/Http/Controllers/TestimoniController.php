@@ -71,7 +71,8 @@ class TestimoniController extends Controller
             
             // return response()->json(['success' => "Berhasil menyimpan data"]);
             // return redirect()->route('servis.index');
-            return redirect('https://wa.me/6281212345678?text=Halo%20Admin,%20Saya%20ingin%20mengajukan%20servis%20'.$testimoni->namaServis. '%20saya');
+            // return redirect('https://wa.me/6281212345678?text=Halo%20Admin,%20Saya%20ingin%20mengajukan%20servis%20'.$testimoni->namaServis. '%20saya');
+            return redirect('https://wa.me/6281212345678?text=Halo%20EZPC%2C%20Saya%20'.$testimoni->nama. '%20ingin%20melakukan%20jasa%20layanan%20servis%20'.$testimoni->namaServis. '%20pada%20tanggal%20'.$testimoni->tanggal. '%20alamat%20saya%20di%20'.$testimoni->alamat. '%20ditunggu%20yaaa%20terimakasih%20');
             // return view('detail-servis.wa');
         }
         

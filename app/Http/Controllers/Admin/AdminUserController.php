@@ -49,7 +49,9 @@ class AdminUserController extends Controller
             'name'      => ['required', 'string', 'max:255'],
             'email'     => ['required', 'email', 'unique:'.User::class],
             'password'  => ['required', 'confirmed', Password::defaults()],
+
             // 'jenisKelamin' => ['required', 'tinyInteger', 'max:4'],
+           
             'nohp' => ['required', 'string', 'max:255'],
             'alamat' => ['required', 'string', 'max:255'],
             'kodepos' => ['required', 'string', 'max:255'],
@@ -82,7 +84,9 @@ class AdminUserController extends Controller
                     'name'  => $request->name,
                     'email'  => $request->email,
                     'image'  => $imgName,
+
                     // 'jenisKelamin'  => $request->jenisKelamin,
+
                     'nohp'  => $request->nohp,
                     'alamat'  => $request->alamat,
                     'kodepos'  => $request->kodepos,
@@ -92,7 +96,9 @@ class AdminUserController extends Controller
                 User::create([
                     'name'  => $request->name,
                     'email'  => $request->email,
+                    
                     // 'jenisKelamin'  => $request->jenisKelamin,
+
                     'nohp'  => $request->nohp,
                     'alamat'  => $request->alamat,
                     'kodepos'  => $request->kodepos,
@@ -135,7 +141,9 @@ class AdminUserController extends Controller
         $validator = Validator::make($request->all(), [
             'name'      => ['required', 'string', 'max:255'],
             'email'     => ['required', 'email'],
+
             // 'jenisKelamin' => ['required', 'tinyInteger', 'max:4'],
+            
             'nohp' => ['required', 'string', 'max:255'],
             'alamat' => ['required', 'string', 'max:255'],
             'kodepos' => ['required', 'string', 'max:255'],
@@ -171,7 +179,9 @@ class AdminUserController extends Controller
                     Storage::putFileAs('public/images/profile-images/users', $request->file('imgUpload'), $imgName);
                     $user->name = $request->input('name');
                     $user->email = $request->input('email');
+
                     // $user->jenisKelamin = $request->input('jenisKelamin');
+                  
                     $user->nohp = $request->input('nohp');
                     $user->alamat = $request->input('alamat');
                     $user->kodepos = $request->input('kodepos');
@@ -181,7 +191,9 @@ class AdminUserController extends Controller
                 } else {
                     $user->name = $request->input('name');
                     $user->email = $request->input('email');
-                    // $user->jenisKelamin = $request->input('jenisKelamin');
+                   
+                    $user->jenisKelamin = $request->input('jenisKelamin');
+                    
                     $user->nohp = $request->input('nohp');
                     $user->alamat = $request->input('alamat');
                     $user->kodepos = $request->input('kodepos');

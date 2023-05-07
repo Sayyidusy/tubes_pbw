@@ -90,7 +90,6 @@
 
             <textarea id="keluhan" placeholder="Isi keluhan disini.." name="keluhan"  cols="30" rows="10" required ></textarea>
 
-            {{-- <a href="https://wa.link/f1hyp9" class="btn"></a> --}}
             <input type="submit" value="Kirim" class="btn" id="submit"> 
 
         </form>
@@ -190,7 +189,7 @@
         <div class="box">
             <img src="assets/images/g-2.jpg" alt="">
             <div class="content">
-                <h3>Processor</h3>
+                <h3>Monitor</h3>
                 <p>Atasi segera masalah pada ...mu hanya di EZPC!</p>
                 <a href="{{ url('detail-servis/2') }}" class="btn">Perbaiki</a>
             </div>
@@ -199,7 +198,7 @@
         <div class="box">
             <img src="assets/images/g-3.jpg" alt="">
             <div class="content">
-                <h3>Thermal Paste</h3>
+                <h3>Processor</h3>
                 <p>Atasi segera masalah pada ...mu hanya di EZPC!</p>
                 <a href="{{ url('detail-servis/3') }}" class="btn">Perbaiki</a>
             </div>
@@ -208,7 +207,7 @@
         <div class="box">
             <img src="assets/images/g-4.jpg" alt="">
             <div class="content">
-                <h3>VGA Card</h3>
+                <h3>Thermal Paste</h3>
                 <p>Atasi segera masalah pada ...mu hanya di EZPC!</p>
                 <a href="{{ url('detail-servis/4') }}" class="btn">Perbaiki</a>
             </div>
@@ -217,7 +216,7 @@
         <div class="box">
             <img src="assets/images/g-5.jpg" alt="">
             <div class="content">
-                <h3>Pembersihan Komputer</h3>
+                <h3>VGA Card</h3>
                 <p>Atasi segera masalah pada ...mu hanya di EZPC!</p>
                 <a href="{{ url('detail-servis/5') }}" class="btn">Perbaiki</a>
             </div>
@@ -226,7 +225,7 @@
         <div class="box">
             <img src="assets/images/g-6.jpg" alt="">
             <div class="content">
-                <h3>Power Supply</h3>
+                <h3>Pembersihan Computer</h3>
                 <p>Atasi segera masalah pada ...mu hanya di EZPC!</p>
                 <a href="{{ url('detail-servis/6') }}" class="btn">Perbaiki</a>
             </div>
@@ -235,7 +234,7 @@
         <div class="box">
             <img src="assets/images/g-7.jpg" alt="">
             <div class="content">
-                <h3>Ganti Hardisk</h3>
+                <h3>Perbaikan Power Supply</h3>
                 <p>Atasi segera masalah pada ...mu hanya di EZPC!</p>
                 <a href="{{ url('detail-servis/7') }}" class="btn">Perbaiki</a>
             </div>
@@ -244,7 +243,7 @@
         <div class="box">
             <img src="assets/images/g-8.jpg" alt="">
             <div class="content">
-                <h3>Perbaikan RAM</h3>
+                <h3>Ganti Hardisk</h3>
                 <p>Atasi segera masalah pada ...mu hanya di EZPC!</p>
                 <a href="{{ url('detail-servis/8') }}" class="btn">Perbaiki</a>
             </div>
@@ -253,7 +252,7 @@
         <div class="box">
             <img src="assets/images/g-9.jpg" alt="">
             <div class="content">
-                <h3>Ganti ROM</h3>
+                <h3>Perbaikan RAM</h3>
                 <p>Atasi segera masalah pada ...mu hanya di EZPC!</p>
                 <a href="{{ url('detail-servis/9') }}" class="btn">Perbaiki</a>
             </div>
@@ -262,7 +261,7 @@
         <div class="box">
             <img src="assets/images/g-10.jpg" alt="">
             <div class="content">
-                <h3>Perbaikan Water Cooling</h3>
+                <h3>Ganti ROM</h3>
                 <p>Atasi segera masalah pada ...mu hanya di EZPC!</p>
                 <a href="{{ url('detail-servis/10') }}" class="btn">Perbaiki</a>
             </div>
@@ -271,7 +270,7 @@
         <div class="box">
             <img src="assets/images/g-11.jpg" alt="">
             <div class="content">
-                <h3>Nama Komponen</h3>
+                <h3>Perbaikan Water Cooling</h3>
                 <p>Atasi segera masalah pada ...mu hanya di EZPC!</p>
                 <a href="{{ url('detail-servis/11') }}" class="btn">Perbaiki</a>
             </div>
@@ -292,27 +291,29 @@
     
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-   
-//    function submitForm(form){
-//     swal({
-//         title: "Anda yakin?",
-//         text: "Data akan dikirim!",
-//         icon: "warning",
-//         buttons: true,
-//         dangerMode: true,
-//     })
-//     .then((isOkay) => {
-//         if (isOkay) {
-//             // form.submit();
-//             swal("Data berhasil dikirim!", {
-//                 icon: "success",
-//             }).then(function() {
-//             form.submit();
-//          })
-//         }
-//     });
-//     return false;
-//    }
+ 
+  
+
+   function submitForm(form){
+    swal({
+        title: "Anda yakin?",
+        text: "Data akan dikirim!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((isOkay) => {
+        if (isOkay) {
+            // form.submit();
+            swal("Data berhasil dikirim!", {
+                icon: "success",
+            }).then(function() {
+            form.submit();
+         })
+        }
+    });
+    return false;
+   }
    
 //    $("#submit").click(function(){
 //     var nama = $("#nama").val();
@@ -338,47 +339,47 @@
 //     }
 //    });
 
-$("#addform").submit(function(e){
-    e.preventDefault();
-    const fd = new FormData(this);
-    $.ajax({
-        url: "{{ url('addform') }}",
-        type: "POST",
-        data: fd,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
-        if (response.errors) {
-          let errors = '';
-          $.each(response.errors, function(key, value) {
-            errors += value + '</br>';
-          });
-          Swal.fire(
-            'Warning',
-            errors,
-            'warning'
-          )
-        } else{
-          $('.konsultasi-table').DataTable().ajax.reload();
-          Swal.fire(
-            'Berhasil!',
-            response.success,
-            'success'
-            )
-          $("#addform").modal('hide');
-        }
-      },
-      error: function (xhr, status, error) {
-        console.log(xhr.responseText)
-        Swal.fire(
-          'Error',
-          'Ada masalah!',
-          'error'
-        )
-      }
-    });
-  });
+// $("#addform").submit(function(e){
+//     e.preventDefault();
+//     const fd = new FormData(this);
+//     $.ajax({
+//         url: "{{ url('addform') }}",
+//         type: "POST",
+//         data: fd,
+//         contentType: false,
+//         processData: false,
+//         dataType: 'json',
+//         success: function(response) {
+//         if (response.errors) {
+//           let errors = '';
+//           $.each(response.errors, function(key, value) {
+//             errors += value + '</br>';
+//           });
+//           Swal.fire(
+//             'Warning',
+//             errors,
+//             'warning'
+//           )
+//         } else{
+//           $('.konsultasi-table').DataTable().ajax.reload();
+//           Swal.fire(
+//             'Berhasil!',
+//             response.success,
+//             'success'
+//             )
+//           $("#addform").modal('hide');
+//         }
+//       },
+//       error: function (xhr, status, error) {
+//         console.log(xhr.responseText)
+//         Swal.fire(
+//           'Error',
+//           'Ada masalah!',
+//           'error'
+//         )
+//       }
+//     });
+//   });
    
 
     

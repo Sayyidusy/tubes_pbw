@@ -38,7 +38,7 @@
                </div> -->
 
             <div class="form">
-            <form action="{{ route('user-profile.update', [$user->id]) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('user-profile.update', [$user->id]) }}" method="POST" enctype="multipart/form-data" onsubmit="return submitForm(this);">
 
                 @csrf
                 @method('PUT')
@@ -86,7 +86,7 @@
                      <p>Saya bersaksi data yang di inputkan benar</p>
                   </div>  --}}
                  <div class="inputfield">
-                   <input type="submit" value="Submit" class="btn">
+                   <input type="submit" value="Submit" class="btn" id="btn-submit">
                  </div>
                </div>
             </form>
@@ -119,6 +119,7 @@
      </section>
 
     <!-- profile section ends -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script> 
     document.addEventListener('change', function (event) {
@@ -128,5 +129,39 @@
         image.src = URL.createObjectURL(event.target.files[0]);
       } 
     });
+
+    // const btnSubmit = document.getElementById('btn-submit');
+    // btnSubmit.addEventListener('click', function() {
+     
+    //   swal({
+    //     title: "Sukses!",
+    //     text: "Data berhasil diubah!",
+    //     icon: "success",
+    //     buttons: true,
+     
+    //   })
+    // });
+
+
+    function submitForm(form){
+    swal({
+        title: "Anda yakin?",
+        text: "Data akan dikirim!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((isOkay) => {
+        if (isOkay) {
+            // form.submit();
+            swal("Data berhasil dikirim!", {
+                icon: "success",
+            }).then(function() {
+            form.submit();
+         })
+        }
+    });
+    return false;
+   }
  </script>
 @endsection

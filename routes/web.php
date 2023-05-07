@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/testimoni', TestimoniController::class);
 
     //link wa
-    
+
     
 });
 
@@ -103,3 +103,6 @@ Route::prefix('/admin')->group(function() {
 
 Route::resource('/servis', ServisController::class);
 Route::get('/detail-servis', [DetailServisController::class, 'index'])->name('detail-servis.index');
+Route::get('/about', function () {
+    return view('about.index');
+});

@@ -8,6 +8,8 @@
         <!-- font awesome cdn link  -->
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+        {{--  --}}
         <link
             href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
             rel="stylesheet"/>
@@ -27,17 +29,21 @@
           {{-- <a href="{{ url('rakit') }}" class="{{ (request()->is('rakit')) ? 'active' : '' }}">Jasa Rakit PC</a> --}}
           <a href="{{ url('servis') }}" class="{{ (request()->is('servis')) ? 'active' : '' }}">Jasa Servis PC</a>
           <a href="{{ url('tentangKami') }}" class="{{ (request()->is('tentangKami')) ? 'active' : '' }}">Tentang Kami</a>
-          <a href="{{ url('hubungiKami') }}" class="{{ (request()->is('hubungiKami')) ? 'active' : '' }}">Hubungi Kami</a>
+          {{-- <a href="{{ url('hubungiKami') }}" class="{{ (request()->is('hubungiKami')) ? 'active' : '' }}">Hubungi Kami</a> --}}
         </nav>
 
         <nav class="dropdown-profile">
             <ul>
-              <li>
+              {{-- <li>
                 <span class="material-icons-outlined"> notifications </span>
-              </li>    
+              </li>     --}}
+              <li>
+                <div id="menu-btn" class="fas fa-bars" style="color: #ffff; font-size: 2rem"></div>
+              </li>
             
               <li>
                 <div class="icons">
+                    
                     <!-- <img src="assets/images/profile.png" class="profile" /> -->
                     <a href="#" class="fas fa-user"></a>
                 </div>
@@ -90,7 +96,7 @@
         </div>
      
         <nav class="navbar">
-           <a href="{{ url('notifikasi') }}"><i class="fas fa-bell"></i><span>Notifikasi</span></a>
+           {{-- <a href="{{ url('notifikasi') }}"><i class="fas fa-bell"></i><span>Notifikasi</span></a> --}}
            <a href="{{ url('user-password/'.$user->id.'/edit') }}"><i class="fa fa-key" aria-hidden="true"></i><span>Ganti Password</span></a>
            <a href="{{ url('user-transaksi/'.$user->id) }}"><i class="fas fa-book"></i><span>Histori Transaksi</span></a>
 
@@ -116,9 +122,33 @@
      </div>
 
     <!-- Side bar section ends -->
-
+     
     @yield('contentProfile')
+   
+    <script>
 
+      let sideBar = document.querySelector('.side-bar');
+
+      document.querySelector('#menu-btn').onclick = () =>{
+        sideBar.classList.toggle('active');
+        body.classList.toggle('active');
+      }
+
+      document.querySelector('#close-btn').onclick = () =>{
+        sideBar.classList.remove('active');
+        body.classList.remove('active');
+      }
+
+      window.onscroll = () =>{
+        profile.classList.remove('active');
+        search.classList.remove('active');
+
+        if(window.innerWidth < 1200){
+            sideBar.classList.remove('active');
+            body.classList.remove('active');
+        }
+      }
+    </script>
   
 
 
@@ -127,4 +157,6 @@
 
     
 </body>
+
+
 </html>

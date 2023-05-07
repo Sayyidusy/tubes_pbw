@@ -119,7 +119,8 @@ class UserProfileController extends Controller
                             'kodepos' => $data['kodepos'],
                            
                         ]);
-                        return Redirect::back()->withSuccess('Data User berhasil diubah');
+                        // return Redirect::back()->withSuccess('Data User berhasil diubah');
+                        return back();
                     
                 } 
             }

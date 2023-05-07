@@ -18,7 +18,7 @@
         <h3>Solusi Jasa</h3>
         <h3>Servis PC <span>TEPERCAYA</span></h3>
         <h3>Dan <span>MUDAH</span></h3>
-        <a href="#" class="btn">Lihat Selengkapnya</a>
+        <a href="#app" class="btn">Lihat Selengkapnya</a>
     </div>
 
   
@@ -31,7 +31,7 @@
 
 <section class="service" id="service">
 
-    <h3 class="sub-heading"> Layanan Aplikasi </h3>
+    <h3 class="sub-heading" id="app"> Layanan Aplikasi </h3>
     <h1 class="heading"> Aplikasi kami melayani service pc atau laptop serta konsultasi</h1>
 
     <div class="row">
@@ -62,7 +62,7 @@
                     <span>Terpercaya</span>
                 </div>
             </div>
-            <a href="#" class="btn">Hubungi Kami</a>
+            <a href="https://wa.link/f1hyp9" class="btn">Hubungi Kami</a>
         </div>
 
     </div>
@@ -213,7 +213,7 @@
             <h3>Ayo Perbaiki PC Mu Sekarang!</h3>
             <h2>EZPC.co.id</h2>
 
-            <a href="#" class="btn">Lihat Selengkapnya</a>
+            {{-- <a href="#" class="btn">Lihat Selengkapnya</a> --}}
         </div>
         <img src="assets/images/iklan-1.png" alt="">
     </div>
@@ -232,10 +232,23 @@
 <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
 
 <!-- loader screen page  -->
-<!-- <div class="loader-container">
+<div class="loader-container">
     <img src="assets/images/loadingbarr.gif" alt="">
-</div> -->
+</div> 
 
 
+<script>
+   
+    function loader(){
+      document.querySelector('.loader-container').classList.add('fade-out');
+    }
+    
+    function fadeOut(){
+      setInterval(loader, 2000);
+    }
+    
+    window.onload = fadeOut();
 
+   
+    </script>
 @endsection

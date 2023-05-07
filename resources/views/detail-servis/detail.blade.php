@@ -154,7 +154,7 @@
 
 
 <script>
-  const imgs = document.querySelectorAll('.img-select a');
+const imgs = document.querySelectorAll('.img-select a');
 const imgBtns = [...imgs];
 let imgId = 1;
 
@@ -181,6 +181,8 @@ document.querySelector("#show-login").addEventListener("click",function(){
   document.querySelector(".popup .close-btn").addEventListener("click",function(){
     document.querySelector(".popup").classList.remove("active");
   });
+
+
 
 </script>
 @endsection

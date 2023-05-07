@@ -66,6 +66,7 @@ class KonsultasiController extends Controller
             }
             
             return response()->json(['success' => "Berhasil menyimpan data"]);
+            // return view('servis.script');
         }
         
 

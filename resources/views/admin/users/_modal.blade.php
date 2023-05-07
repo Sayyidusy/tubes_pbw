@@ -29,6 +29,7 @@
               {{-- <div class="form-group mb-3">
                   <input type="text" required class="name form-control" id="jenisKelamin" name="jenisKelamin" autocomplete="off" placeholder="Jenis Kelamin">
               </div> --}}
+
               <div class="form-group mb-3">
                   <input type="text" required class="name form-control" id="nohp" name="nohp" autocomplete="off" placeholder="No HP">
               </div>
@@ -90,7 +91,12 @@
                   <label for="email">Email</label>
                   <input type="text" required class="email form-control" id="email" name="email" autocomplete="off">
               </div>
-             
+              
+              {{-- jenis kelamin --}}
+              {{-- <div class="form-group mb-3">
+                  <label for="jenisKelamin">Jenis Kelamin</label>
+                  <input type="text" required class="name form-control" id="jenisKelamin" name="jenisKelamin" autocomplete="off">
+              </div> --}}
               
               
               <div class="form-group mb-3">
